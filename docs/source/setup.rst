@@ -41,7 +41,7 @@ The definition itself is a Python module, which has the structure:
   └── __init__.py
 
 For more examples, please refer to
-`example <https://github.com/idocx/alab_management/tree/master/example/devices>`_ in the repo .
+`example <https://github.com/CederGroupHub/alab_management/tree/master/examples/simple_example>`_ in the repo .
 
 Configuration File
 ------------------
