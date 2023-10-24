@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alab_management.device_view.dbattributes &#8212; Alab Management</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css?v=a123c646" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=32297c5f" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=c5b77fbd"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js?v=dbd2e957"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Alab Management</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../index.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent" role="heading">
+ <span class="caption-text">
+  Quickstart
+ </span>
+ <i class="fas fa-chevron-down">
+ </i>
+</p>
+<ul class="collapse-ul nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../setup.html">
+   Setup definition folder
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../device_definition.html">
+   Defining new devices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../task_definition.html">
+   Defining new tasks
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../development.html">
+   Development
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../../modules.html">
+   API Docs
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../../../alab_management.html">
+     alab_management package
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../../../alab_management.builders.html">
+       alab_management.builders package
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.builders.experimentbuilder.html">
+         alab_management.builders.experimentbuilder module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.builders.samplebuilder.html">
+         alab_management.builders.samplebuilder module
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../../../alab_management.device_view.html">
+       alab_management.device_view package
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.device_view.dbattributes.html">
+         alab_management.device_view.dbattributes module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.device_view.device.html">
+         alab_management.device_view.device module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.device_view.device_view.html">
+         alab_management.device_view.device_view module
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../../../alab_management.experiment_view.html">
+       alab_management.experiment_view package
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.experiment_view.completed_experiment_view.html">
+         alab_management.experiment_view.completed_experiment_view module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.experiment_view.experiment.html">
+         alab_management.experiment_view.experiment module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.experiment_view.experiment_view.html">
+         alab_management.experiment_view.experiment_view module
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../../../alab_management.sample_view.html">
+       alab_management.sample_view package
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.sample_view.completed_sample_view.html">
+         alab_management.sample_view.completed_sample_view module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.sample_view.sample.html">
+         alab_management.sample_view.sample module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.sample_view.sample_view.html">
+         alab_management.sample_view.sample_view module
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../../../alab_management.task_manager.html">
+       alab_management.task_manager package
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_manager.enums.html">
+         alab_management.task_manager.enums module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_manager.resource_requester.html">
+         alab_management.task_manager.resource_requester module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_manager.task_manager.html">
+         alab_management.task_manager.task_manager module
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../../../alab_management.task_view.html">
+       alab_management.task_view package
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_view.completed_task_view.html">
+         alab_management.task_view.completed_task_view module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_view.task.html">
+         alab_management.task_view.task module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_view.task_enums.html">
+         alab_management.task_view.task_enums module
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../alab_management.task_view.task_view.html">
+         alab_management.task_view.task_view module
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.alarm.html">
+       alab_management.alarm module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.config.html">
+       alab_management.config module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.device_manager.html">
+       alab_management.device_manager module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.experiment_manager.html">
+       alab_management.experiment_manager module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.lab_view.html">
+       alab_management.lab_view module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.logger.html">
+       alab_management.logger module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.task_actor.html">
+       alab_management.task_actor module
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../alab_management.user_input.html">
+       alab_management.user_input module
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/idocx/alab_management"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <h1>Source code for alab_management.device_view.dbattributes</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pymongo.collection</span> <span class="kn">import</span> <span class="n">Collection</span>
+
+<span class="n">UUID4_PLACEHOLDER</span> <span class="o">=</span> <span class="s2">&quot;be8b61ee-48b1-4624-bf7a-2ca31f7c5ef4&quot;</span>
+
+
+<div class="viewcode-block" id="value_in_database"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.value_in_database">[docs]</a><span class="k">def</span> <span class="nf">value_in_database</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">property</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Property factory to mirror a Device attribute in the ALab database. This must be declared as a Class Variable</span>
+<span class="sd">    under a Device subclass of BaseDevice!.</span>
+
+<span class="sd">    Args: name (str): attribute name default_value (Any): default value for the attribute. Note that this value is</span>
+<span class="sd">    not used until the first time a property is queried; at this time, if the attribute is not found in the database,</span>
+<span class="sd">    it is set to this value.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">        property: class property that handles getting/setting values from the database.</span>
+
+
+<span class="sd">    Example usage when defining a new Device:</span>
+
+<span class="sd">        .. code-block:: python</span>
+<span class="sd">        from alab_management.device_view import BaseDevice, attribute_in_database</span>
+
+<span class="sd">        class MyDevice(BaseDevice):</span>
+<span class="sd">            my_attribute = attribute_in_database(&quot;my_attribute&quot;, 0)</span>
+
+<span class="sd">            def __init__(self, name: str, **kwargs):</span>
+<span class="sd">                super().__init__(name, **kwargs)</span>
+<span class="sd">                self.name = name</span>
+<span class="sd">                self.my_attribute #initial call to the property, which sets the default value in the database</span>
+
+<span class="sd">        ....</span>
+<span class="sd">        #first instantiation</span>
+
+<span class="sd">        mydevice = MyDevice(name = &quot;mydevice_1&quot;)</span>
+<span class="sd">        mydevice.my_attribute = 5 #sets the value in the database</span>
+
+<span class="sd">        ....</span>
+<span class="sd">        #future instantiation</span>
+<span class="sd">        mydevice = MyDevice(name = &quot;mydevice_1&quot;)</span>
+<span class="sd">        mydevice.my_attribute #retrieves value from db and returns 5</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">getter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device_view</span><span class="o">.</span><span class="n">get_all_attributes</span><span class="p">(</span><span class="n">device_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="n">attributes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">default_value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device_view</span><span class="o">.</span><span class="n">set_all_attributes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">attributes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">setter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device_view</span><span class="o">.</span><span class="n">set_attribute</span><span class="p">(</span>
+            <span class="n">device_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">attribute</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">property</span><span class="p">(</span><span class="n">getter</span><span class="p">,</span> <span class="n">setter</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ListInDatabase"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase">[docs]</a><span class="k">class</span> <span class="nc">ListInDatabase</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that emulates a list, but stores the list in the device database. Useful for working with Device</span>
+<span class="sd">    attributes that are lists, so values persist across alabos sessions. This should be instantiated using</span>
+<span class="sd">    `alab_management.device_view.device.BaseDevice.list_in_database`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">device_collection</span><span class="p">:</span> <span class="n">Collection</span><span class="p">,</span>
+            <span class="n">device_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">attribute_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">default_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="o">=</span> <span class="n">device_collection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span> <span class="o">=</span> <span class="n">attribute_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span> <span class="o">=</span> <span class="n">device_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="n">default_value</span> <span class="ow">or</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">default_value</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;ListInDatabase must be initialized with a list or tuple!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_raise_if_invalid_value</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_raise_if_invalid_value</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">val</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;We do not support nesting iterables within ListInDatabase. This is tricky to implement in pymongo so we</span>
+<span class="sd">        have opted to not support for now. This function checks for iterabls and raises an error if it finds any.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            val (Any): Value that we would like to store in the ListInDatabase.</span>
+
+<span class="sd">        Raises ------ ValueError: Nested iterables are not supported for a ListInDatabase. Elements within a</span>
+<span class="sd">        ListInDatabase must be single values (ie not a dict, list, or tuple). Note that this affects lists nested</span>
+<span class="sd">        within DictInDatabase as well!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Nested iterables are not supported for a ListInDatabase. Elements within a ListInDatabase must be &quot;</span>
+                <span class="s2">&quot;single values (ie not a dict, list, or tuple). Note that this affects lists nested within &quot;</span>
+                <span class="s2">&quot;DictInDatabase as well!&quot;</span>
+            <span class="p">)</span>
+
+<div class="viewcode-block" id="ListInDatabase.apply_default_value"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.apply_default_value">[docs]</a>    <span class="k">def</span> <span class="nf">apply_default_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is called within `alab_management.scripts.setup_lab()` to ensure that all devices have the correct</span>
+<span class="sd">        default values for their attributes. This should not be called manually.</span>
+
+<span class="sd">        Raises ------ ValueError: Device is not found in the database. This should only occur if this function is</span>
+<span class="sd">        called out of order (i.e. before the device is created in the db).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;A device by the name </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="si">}</span><span class="s2"> was not found in the collection.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;attributes&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span><span class="p">}}</span>
+            <span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">db_projection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The projection used to retrieve the attribute from the database. This is used internally by the class.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;attributes.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">db_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The filter used to retrieve the attribute from the database. This is used internally by the class.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">},</span> <span class="n">projection</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="si">}</span><span class="s2"> does not contain data at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="si">}</span><span class="s2">!&quot;</span>
+            <span class="p">)</span>
+        <span class="n">return_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+            <span class="n">return_value</span> <span class="o">=</span> <span class="n">return_value</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="c1"># for val in return_value:</span>
+        <span class="c1">#     if isinstance(val, dict):</span>
+        <span class="c1">#         val = DictInDatabase(self._collection, self.device_name, self.attribute_name, val)</span>
+        <span class="c1">#     self._raise_if_invalid_value(val)</span>
+
+        <span class="k">return</span> <span class="n">return_value</span>
+
+<div class="viewcode-block" id="ListInDatabase.append"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.append">[docs]</a>    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Append an element to the list. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$push&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">x</span><span class="p">}})</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.extend"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.extend">[docs]</a>    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Extend the list with another iterable. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.clear"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear the list. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="p">[]}})</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.copy"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>  <span class="c1"># copied by virtue of reading from database</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.index"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.index">[docs]</a>    <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the index of the first occurrence of x in the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.count"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.count">[docs]</a>    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the number of occurrences of x in the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="o">.</span><span class="n">count</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.insert"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Insert an element at a given position. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.pop"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.pop">[docs]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove the element at a given position. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.remove"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove the first item from the list whose value is equal to x. This will update the database with the new.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.reverse"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.reverse">[docs]</a>    <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reverse the elements of the list in place. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ListInDatabase.sort"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.ListInDatabase.sort">[docs]</a>    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sort the items of the list in place. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">reverse</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add two lists together. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">+</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="fm">__iadd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add two lists together. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">new</span><span class="p">}})</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Multiply the list by a scalar. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">*</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="fm">__imul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Multiply the list by a scalar. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">*</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">new</span><span class="p">}})</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an item from the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set an item in the list. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_raise_if_invalid_value</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Elements within a ListInDatabase cannot be iterable. Spefically, values of the ListInDatabase cannot &quot;</span>
+                <span class="s2">&quot;be a dict, list, or tuple!&quot;</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the length of the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if an item is in the list. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span></div>
+
+
+<div class="viewcode-block" id="DictInDatabase"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase">[docs]</a><span class="k">class</span> <span class="nc">DictInDatabase</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class that emulates a dict, but stores the dict in the device database. Useful for working with Device</span>
+<span class="sd">    attributes that are dict, so values persist across alabos sessions. This should be instantiated using</span>
+<span class="sd">    `alab_management.device_view.device.BaseDevice.dict_in_database`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">device_collection</span><span class="p">:</span> <span class="n">Collection</span><span class="p">,</span>
+            <span class="n">device_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">attribute_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">default_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="o">=</span> <span class="n">device_collection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span> <span class="o">=</span> <span class="n">attribute_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span> <span class="o">=</span> <span class="n">device_name</span>
+        <span class="k">if</span> <span class="n">default_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">default_value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Default value for DictInDatabase must be a dictionary!&quot;</span>
+                <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="n">default_value</span>
+
+<div class="viewcode-block" id="DictInDatabase.apply_default_value"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.apply_default_value">[docs]</a>    <span class="k">def</span> <span class="nf">apply_default_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This is called within `alab_management.scripts.setup_lab()` to ensure that all devices have the correct</span>
+<span class="sd">        default values for their attributes. This should not be called manually.</span>
+
+<span class="sd">        Raises ------ ValueError: Device is not found in the database. This should only occur if this function is</span>
+<span class="sd">        called out of order (i.e. before the device is created in the db).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;A device by the name </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="si">}</span><span class="s2"> was not found in the collection.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;attributes&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span><span class="p">}}</span>
+            <span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">db_projection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The projection used to retrieve the attribute from the database. This is used internally by the class.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;attributes.</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">db_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The filter used to retrieve the attribute from the database. This is used internally by the class.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">},</span> <span class="n">projection</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="si">}</span><span class="s2"> does not contain data at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="si">}</span><span class="s2">!&quot;</span>
+            <span class="p">)</span>
+        <span class="n">return_value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+            <span class="n">return_value</span> <span class="o">=</span> <span class="n">return_value</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">return_value</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">return_value</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">DictInDatabase</span><span class="p">(</span>
+                    <span class="n">device_collection</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">,</span>
+                    <span class="n">device_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span>
+                    <span class="n">attribute_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">default_value</span><span class="o">=</span><span class="n">val</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">return_value</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ListInDatabase</span><span class="p">(</span>
+                    <span class="n">device_collection</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">,</span>
+                    <span class="n">device_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">,</span>
+                    <span class="n">attribute_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute_name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">default_value</span><span class="o">=</span><span class="n">val</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">return_value</span>
+
+<div class="viewcode-block" id="DictInDatabase.as_normal_dict"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.as_normal_dict">[docs]</a>    <span class="k">def</span> <span class="nf">as_normal_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a normal dict representation of the DictInDatabase. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="p">},</span> <span class="n">projection</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Device </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">device_name</span><span class="si">}</span><span class="s2"> does not contain data at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="si">}</span><span class="s2">!&quot;</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.clear"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear the dict. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="p">{}}})</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.copy"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span>  <span class="c1"># copied by virtue of reading from database</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.fromkeys"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.fromkeys">[docs]</a>    <span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;fromkeys is not implemented for DictInDatabase&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.get"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.items"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.items">[docs]</a>    <span class="k">def</span> <span class="nf">items</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="o">.</span><span class="n">items</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.keys"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.values"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.values">[docs]</a>    <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.pop"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.pop">[docs]</a>    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">UUID4_PLACEHOLDER</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="n">UUID4_PLACEHOLDER</span><span class="p">:</span>  <span class="c1"># only fires if default value was not provided</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> was not found in the dictionary!&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.popitem"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.popitem">[docs]</a>    <span class="k">def</span> <span class="nf">popitem</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.setdefault"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.setdefault">[docs]</a>    <span class="k">def</span> <span class="nf">setdefault</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;setdefault is not implemented for DictInDatabase&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DictInDatabase.update"><a class="viewcode-back" href="../../../alab_management.device_view.dbattributes.html#alab_management.device_view.dbattributes.DictInDatabase.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__reversed__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a reversed copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a iter copy of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get an item from the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set an item in the dict. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="c1"># lists/tuples entered as dict values may be returned later as ListInDatabase objects. ListInDatabase does</span>
+        <span class="c1"># not support nested iterables! So we will raise an error if we detect values that ListInDatabase cannot handle.</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">_val</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+                <span class="n">ListInDatabase</span><span class="o">.</span><span class="n">_raise_if_invalid_value</span><span class="p">(</span><span class="n">_val</span><span class="p">)</span>
+
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span>
+        <span class="n">current</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete an item from the dict. This will update the database with the new value.&quot;&quot;&quot;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">current</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="o">.</span><span class="n">update_one</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">db_filter</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;$set&quot;</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">db_projection</span><span class="p">:</span> <span class="n">current</span><span class="p">}}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if an item is in the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the length of the dict. This will not update the database.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">as_normal_dict</span><span class="p">())</span></div>
+</pre></div>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alab Project Team<br/>
+        
+            &copy; Copyright 2023, Alab Project Team.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
