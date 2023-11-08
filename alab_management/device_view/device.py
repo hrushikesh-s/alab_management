@@ -13,30 +13,47 @@ from alab_management.sample_view.sample import SamplePosition
 from alab_management.user_input import request_maintenance_input
 
 from .dbattributes import DictInDatabase, ListInDatabase
+import functools
+
+from unittest.mock import Mock
+from alab_management.config import AlabConfig
+
+# def mock(*, return_constant: Any = None, return_mock_call: Callable[..., Any] = None):
+#     def decorator(f: Callable[..., Any]):
+#         @functools.wraps(f)
+#         def wrapper(*args, **kwargs):
+#             from alab_management.config import AlabConfig
+
+#             if AlabConfig()["general"].get("simulation", False):
+#                 if return_constant is not None and return_mock_call is not None:
+#                     raise ValueError(
+#                         "Cannot specify both return_constant and return_mock_call!"
+#                     )
+#                 elif return_constant is not None:
+#                     return return_constant
+#                 elif return_mock_call is not None:
+#                     return return_mock_call(*args, **kwargs)
+#                 else:
+#                     raise ValueError(
+#                         "Must specify either return_constant or return_mock_call!"
+#                     )
+#             else:
+#                 return f(*args, **kwargs)
+#         return wrapper
+#     return decorator
 
 
-def mock(*, return_constant: Any = None, return_mock_call: Callable[..., Any] = None):
-    def decorator(f: Callable[..., Any]):
-        @functools.wraps(f)
+def simulate_if_true(mock_object: Mock = None):
+    def decorator(func):
+        @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            from alab_management.config import AlabConfig
-
-            if AlabConfig()["general"].get("simulation", False):
-                if return_constant is not None and return_mock_call is not None:
-                    raise ValueError(
-                        "Cannot specify both return_constant and return_mock_call!"
-                    )
-                elif return_constant is not None:
-                    return return_constant
-                elif return_mock_call is not None:
-                    return return_mock_call(*args, **kwargs)
-                else:
-                    raise ValueError(
-                        "Must specify either return_constant or return_mock_call!"
-                    )
+            if AlabConfig()["general"].get("simulation", True):
+                return mock_object(*args, **kwargs)
             else:
-                return f(*args, **kwargs)
+                return func(*args, **kwargs)
+
         return wrapper
+
     return decorator
 
 
@@ -204,7 +221,7 @@ class BaseDevice(ABC):
 
     # methods to store Device values inside the database. Lists and dictionaries are supported.
     def list_in_database(
-            self, name: str, default_value: Optional[Union[list, None]] = None
+        self, name: str, default_value: Optional[Union[list, None]] = None
     ) -> ListInDatabase:
         """
         Create a list attribute that is stored in the database.
@@ -226,7 +243,7 @@ class BaseDevice(ABC):
         )
 
     def dict_in_database(
-            self, name: str, default_value: Optional[Union[dict, None]] = None
+        self, name: str, default_value: Optional[Union[dict, None]] = None
     ) -> DictInDatabase:
         """
         Create a dict attribute that is stored in the database.
@@ -271,7 +288,7 @@ class BaseDevice(ABC):
         return request_maintenance_input(prompt=prompt, options=options)
 
     def retrieve_signal(
-            self, signal_name: str, within: Optional[datetime.timedelta] = None
+        self, signal_name: str, within: Optional[datetime.timedelta] = None
     ):
         """Retrieve a signal from the database.
 
