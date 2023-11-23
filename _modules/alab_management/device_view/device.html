@@ -379,22 +379,85 @@
 <span></span><span class="sd">&quot;&quot;&quot;Define the base class of devices.&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">functools</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Empty</span><span class="p">,</span> <span class="n">PriorityQueue</span>
 <span class="kn">from</span> <span class="nn">traceback</span> <span class="kn">import</span> <span class="n">format_exc</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">Mock</span>
 
 <span class="kn">from</span> <span class="nn">alab_management.logger</span> <span class="kn">import</span> <span class="n">DBLogger</span>
 <span class="kn">from</span> <span class="nn">alab_management.sample_view.sample</span> <span class="kn">import</span> <span class="n">SamplePosition</span>
 <span class="kn">from</span> <span class="nn">alab_management.user_input</span> <span class="kn">import</span> <span class="n">request_maintenance_input</span>
 
 <span class="kn">from</span> <span class="nn">.dbattributes</span> <span class="kn">import</span> <span class="n">DictInDatabase</span><span class="p">,</span> <span class="n">ListInDatabase</span>
-<span class="kn">import</span> <span class="nn">functools</span>
-<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">Mock</span>
+
 
 <div class="viewcode-block" id="mock"><a class="viewcode-back" href="../../../alab_management.device_view.device.html#alab_management.device_view.device.mock">[docs]</a><span class="k">def</span> <span class="nf">mock</span><span class="p">(</span><span class="n">return_constant</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">object_type</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A decorator used for mocking functions during simulation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    - return_constant (Any, optional): The constant value to be returned by the mocked function.</span>
+<span class="sd">        It can be a value (str, int, float, bool), list of values, or a dictionary specifying</span>
+<span class="sd">        return values for keys. Default is None.</span>
+<span class="sd">    - object_type (Union[List[Any], Any], optional): The type or list of types to mock if the</span>
+<span class="sd">        function returns an object. Default is None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    - decorator: Decorator function used to mock other functions during simulation.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    - ValueError: If both `return_constant` and `object_type` are specified.</span>
+<span class="sd">    - ValueError: If `return_constant` is not of types: str, int, float, bool, list, or dict.</span>
+<span class="sd">    - ValueError: If `object_type` is specified and not a list or a class type.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">    - The decorator mocks the function during simulation based on specified constant values</span>
+<span class="sd">        or object types.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1. Mocking a function with a constant return value:</span>
+<span class="sd">    @mock(return_constant=42)</span>
+<span class="sd">    def get_data() -&gt; int:</span>
+<span class="sd">        ...</span>
+<span class="sd">        a = some_integer</span>
+<span class="sd">        return a</span>
+
+<span class="sd">    2. Mocking a function that returns multiple values in a dictionary:</span>
+<span class="sd">    @mock(return_constant={&quot;twotheta&quot;: [0.1, 0.2, 0.3], &quot;counts&quot;: [100, 200, 300]})</span>
+<span class="sd">    def run_simulation() -&gt; dict:</span>
+<span class="sd">        ...</span>
+<span class="sd">        a = {twotheta: [0.1, 0.2, 0.3]}</span>
+<span class="sd">        b = {counts: [100, 200, 300]}</span>
+<span class="sd">        return {**a, **b}</span>
+
+<span class="sd">    3. Mocking a function that returns a specific object type:</span>
+<span class="sd">    @mock(object_type=str)</span>
+<span class="sd">    def create_mock_string() -&gt; str:</span>
+<span class="sd">        return &quot;Mocked String&quot;</span>
+
+<span class="sd">    4. Mocking a function that returns a single object type:</span>
+<span class="sd">    from alab_control.ohaus_scale import OhausScale as ScaleDriver</span>
+<span class="sd">    @mock(object_type=ScaleDriver)</span>
+<span class="sd">    def get_driver(self):</span>
+<span class="sd">        self.driver = ScaleDriver(ip=self.ip_address, timeout=self.TIMEOUT)</span>
+<span class="sd">        self.driver.set_unit_to_mg()</span>
+<span class="sd">        return self.driver</span>
+
+<span class="sd">    5. Mocking a function that returns a list of object types:</span>
+<span class="sd">    from alab_control.furnace_2416 import FurnaceController</span>
+<span class="sd">    from alab_control.door_controller import DoorController</span>
+<span class="sd">    @mock(object_type=[FurnaceController, DoorController])</span>
+<span class="sd">    def get_driver(self):</span>
+<span class="sd">        self.driver = FurnaceController(port=self.com_port)</span>
+<span class="sd">        return self.driver, self.door_controller</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
         <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -405,10 +468,10 @@
                         <span class="s2">&quot;Cannot specify both return_constant and return_mock_call!&quot;</span>
                     <span class="p">)</span>
                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">return_constant</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-                    <span class="n">return_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">return_constant</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">return_constant</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+                    <span class="n">return_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">return_constant</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">return_constant</span><span class="p">}</span>
                     <span class="k">return</span> <span class="n">return_dict</span>
                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">return_constant</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-                    <span class="k">return</span><span class="p">[</span><span class="n">return_constant_i</span> <span class="k">for</span> <span class="n">return_constant_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">return_constant</span><span class="p">))]</span> 
+                    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">return_constant</span><span class="p">)))</span>
                 <span class="k">elif</span> <span class="n">return_constant</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                     <span class="k">return</span> <span class="n">return_constant</span>
                 <span class="k">elif</span> <span class="n">object_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
