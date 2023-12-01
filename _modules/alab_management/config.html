@@ -463,7 +463,7 @@
         <span class="c1"># self._config = freeze_config(_config)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">_config</span>
 
-        <span class="c1"># Define the key and value to be updated</span>
+        <span class="c1"># Define the key and nested_key for the &#39;general&#39; section</span>
         <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;general&quot;</span>
         <span class="n">nested_key</span> <span class="o">=</span> <span class="s2">&quot;simulation&quot;</span>
 
@@ -474,6 +474,39 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">set_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">general_section</span><span class="p">)</span>
 
             <span class="c1"># Save the modified configuration back to the file &#39;config.toml&#39;</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">toml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+            <span class="c1"># Define the key and nested_key for the &#39;alarm&#39; section</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;alarm&quot;</span>
+            <span class="n">nested_key</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;email_password&quot;</span><span class="p">,</span> <span class="s2">&quot;email_receivers&quot;</span><span class="p">,</span> <span class="s2">&quot;email_sender&quot;</span><span class="p">,</span> <span class="s2">&quot;slack_bot_token&quot;</span><span class="p">,</span> <span class="s2">&quot;slack_channel&quot;</span><span class="p">]</span>
+
+            <span class="c1"># Open the file &#39;config.toml&#39; again to read the modified configuration</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">_config</span> <span class="o">=</span> <span class="n">toml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+            <span class="c1"># Update the &#39;alarm&#39; section with the new value for &#39;email_password&#39;, &#39;email_receivers&#39;, &#39;email_sender&#39;, &#39;slack_bot_token&#39;, &#39;slack_channel&#39; if sim_mode is provided</span>
+            <span class="k">if</span> <span class="n">sim_mode</span><span class="p">:</span>
+                <span class="n">email_password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">email_receivers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+                <span class="n">email_sender</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">slack_bot_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">slack_channel</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">email_password</span> <span class="o">=</span> <span class="s2">&quot;rjuttalfbnvquyek&quot;</span>
+                <span class="n">email_receivers</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="s2">&quot;bernardus_rendy@berkeley.edu&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
+                <span class="n">email_sender</span> <span class="o">=</span> <span class="s2">&quot;alabmanagement@gmail.com&quot;</span>
+                <span class="n">slack_bot_token</span> <span class="o">=</span> <span class="s2">&quot;xoxb-53032848964-4821073683568-Ccm2VwTJLbhU0reM8XENw2wr&quot;</span>
+                <span class="n">slack_channel</span> <span class="o">=</span> <span class="s2">&quot;C04PF6C68MR&quot;</span>
+            <span class="n">alarm_section</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">email_password</span>
+            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">email_receivers</span>
+            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">email_sender</span>
+            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="n">slack_bot_token</span>
+            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="n">slack_channel</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">alarm_section</span><span class="p">)</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">toml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 
