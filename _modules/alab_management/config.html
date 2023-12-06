@@ -405,7 +405,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">MappingProxyType</span> <span class="k">as</span> <span class="n">FrozenDict</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
 <span class="kn">import</span> <span class="nn">toml</span>
 
@@ -438,11 +438,16 @@
 <div class="viewcode-block" id="AlabConfig"><a class="viewcode-back" href="../../alab_management.config.html#alab_management.config.AlabConfig">[docs]</a><span class="k">class</span> <span class="nc">AlabConfig</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class used for storing all the config data.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sim_mode</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Load a immutable toml config file from `config_path`.&quot;&quot;&quot;</span>
         <span class="n">config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ALAB_CONFIG&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">config_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sim_mode_flag</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SIM_MODE_FLAG&quot;</span><span class="p">,</span> <span class="s2">&quot;False&quot;</span><span class="p">)</span>
+        <span class="n">sim_mode_flag_boolean</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">sim_mode_flag</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sim_mode_flag_boolean</span> <span class="ow">and</span> <span class="n">config_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">config_path</span> <span class="o">=</span> <span class="n">config_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;alab_management_config.toml&quot;</span><span class="p">,</span> <span class="s2">&quot;alab_management_config_sim.toml&quot;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ALAB_CONFIG&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config_path</span>
+            <span class="n">config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ALAB_CONFIG&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">config_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;config.toml&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -456,56 +461,7 @@
             <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config_path</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
-        <span class="c1"># self._config = freeze_config(_config)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">_config</span>
-
-        <span class="c1"># Define the key and nested_key for the &#39;general&#39; section</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;general&quot;</span>
-        <span class="n">nested_key</span> <span class="o">=</span> <span class="s2">&quot;simulation&quot;</span>
-
-        <span class="c1"># Update the &#39;general&#39; section with the new value for &#39;simulation&#39; if sim_mode is provided</span>
-        <span class="k">if</span> <span class="n">sim_mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">:</span>
-            <span class="n">general_section</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-            <span class="n">general_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sim_mode</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">general_section</span><span class="p">)</span>
-
-            <span class="c1"># Save the modified configuration back to the file &#39;config.toml&#39;</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">toml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-
-            <span class="c1"># Define the key and nested_key for the &#39;alarm&#39; section</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;alarm&quot;</span>
-            <span class="n">nested_key</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;email_password&quot;</span><span class="p">,</span> <span class="s2">&quot;email_receivers&quot;</span><span class="p">,</span> <span class="s2">&quot;email_sender&quot;</span><span class="p">,</span> <span class="s2">&quot;slack_bot_token&quot;</span><span class="p">,</span> <span class="s2">&quot;slack_channel&quot;</span><span class="p">]</span>
-
-            <span class="c1"># Open the file &#39;config.toml&#39; again to read the modified configuration</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">_config</span> <span class="o">=</span> <span class="n">toml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-            <span class="c1"># Update the &#39;alarm&#39; section with the new value for &#39;email_password&#39;, &#39;email_receivers&#39;,</span>
-            <span class="c1"># &#39;email_sender&#39;, &#39;slack_bot_token&#39;, &#39;slack_channel&#39; if sim_mode is provided</span>
-            <span class="k">if</span> <span class="n">sim_mode</span><span class="p">:</span>
-                <span class="n">email_password</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-                <span class="n">email_receivers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
-                <span class="n">email_sender</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-                <span class="n">slack_bot_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-                <span class="n">slack_channel</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">email_password</span> <span class="o">=</span> <span class="s2">&quot;rjuttalfbnvquyek&quot;</span>
-                <span class="n">email_receivers</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="s2">&quot;bernardus_rendy@berkeley.edu&quot;</span><span class="p">,</span>
-                <span class="p">]</span>
-                <span class="n">email_sender</span> <span class="o">=</span> <span class="s2">&quot;alabmanagement@gmail.com&quot;</span>
-                <span class="n">slack_bot_token</span> <span class="o">=</span> <span class="s2">&quot;xoxb-53032848964-4821073683568-Ccm2VwTJLbhU0reM8XENw2wr&quot;</span>
-                <span class="n">slack_channel</span> <span class="o">=</span> <span class="s2">&quot;C04PF6C68MR&quot;</span>
-            <span class="n">alarm_section</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">email_password</span>
-            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">email_receivers</span>
-            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">email_sender</span>
-            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="n">slack_bot_token</span>
-            <span class="n">alarm_section</span><span class="p">[</span><span class="n">nested_key</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="n">slack_channel</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_item</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">alarm_section</span><span class="p">)</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">toml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">freeze_config</span><span class="p">(</span><span class="n">_config</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the config item.&quot;&quot;&quot;</span>
